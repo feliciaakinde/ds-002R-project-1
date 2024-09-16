@@ -5,27 +5,59 @@ description: |
 author: Felicia Akinde
 date: September 18, 2024
 format: html
+about:
+  template: trestles
+  links:
+    - text: Cheese Data Source
+      href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-06-04
 ---
-
-```{r}
+Data Source: 
+```{r, message=FALSE, warning=FALSE, echo = FALSE}
 library(tidytuesdayR)
 library(tidyverse)
 library(dplyr)
 
+# imports data from tidytuesday
 tuesdata <- tidytuesdayR::tt_load(2024, week = 23)
 
+# renames data
 cheeses <- tuesdata$cheeses
 
-cleaned_cheeses <- cheeses %>%
-  filter(!is.na(milk) & !is.na(color) & !is.na(count))
+# removes "mg/100g" from end of calcium_content
+cheeses$calcium_content <- str_sub(cheeses$calcium_content, end = -8)
 
-ggplot(cleaned_cheeses, aes(x = milk, y = color)) +
+# turns calcium_content from a string into a number
+cheeses$calcium_content <- as.numeric(cheeses$calcium_content)
+
+# creates a new data point if there is more than one animal in milk
+cheeses_separated <- cheeses %>%
+  separate_rows(milk, sep = ", ") 
+
+# takes NAs out of milk and calcium content
+cleaned_cheeses <- cheeses_separated %>%
+  filter(!is.na(milk) & !is.na(calcium_content)) %>%
+  # creates ranges for calcium_content & assigns them appropriate labels
+  mutate(calcium_range = cut(calcium_content,
+                         breaks = c(0, 50, 100, 200, 500, 1000, 5000),
+                         labels = c("0-50", "50-100", "100-200", "200-500", "500-1000", "1000-5000")
+                         ))
+
+# assigns each range to a color 
+colors <- c("0-50" = "#CDC754",  
+            "50-100" = "#80CD54",
+            "100-200" = "#54CD8D",
+            "200-500" = "#54C2CD",  
+            "500-1000" = "#7588F4",
+            "1000-5000" = "#2D34A7") 
+
+# makes plot
+ggplot(cleaned_cheeses, aes(x = milk, y = color, fill = calcium_range)) +
   geom_tile() +
-  scale_fill_gradient(low = "pink", high = "lightgreen") +  # Customize colors
+  scale_fill_manual(values = colors) +
   labs(
-    x = "Population density",
-    y = "Count",
-    title = "Population density of midwesten counties",
-    subtitle = "Binwidth = 100"
-  )
+    x = "Type of Milk",
+    y = "Color",
+    title = "Calcium Content by Type of Milk and Cheese Color",
+    fill = "Calcium Content (mg/100g)"
+  ) 
 ```

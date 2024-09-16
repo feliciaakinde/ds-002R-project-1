@@ -2,7 +2,7 @@
 title: "Felicia Akinde"
 image: media/IMG_4220.jpeg
 2toc: false
-about: 
+about:
   template: trestles
   image-shape: rounded
   image-width: 17em
@@ -15,3 +15,4 @@ about:
       href: mailto:ffav2023@mymail.pomona.edu
 ---
 
+Felicia Akinde is a student (CO '27) at Pomona College in Claremont, California. She is majoring in neuroscience, with minors in data science and French. Originally from Chicago, Illinois, she enjoys playing her guitar, drawing, and hanging out with friends when she isn't soaking up the sunny California rays. One of her favorite food combinations is coffee and cheese, which inspired the data used on this website. Click on "About" to learn more!

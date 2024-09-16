@@ -5,22 +5,50 @@ description: |
 author: Felicia Akinde
 date: September 18, 2024
 format: html
+about:
+  template: trestles
+  links:
+    - text: Coffee Data Source
+      href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-05-14
 ---
-
-```{r}
+```{r message=FALSE, warning=FALSE, echo = FALSE, fig.align="center", fig.width = 12}
 library(tidytuesdayR)
 library(tidyverse)
 
+# imports data from tidytuesday
 tuesdata <- tidytuesdayR::tt_load(2024, week = 20)
 
+# renames data
 coffee_survey <- tuesdata$coffee_survey
 
-ggplot(coffee_survey, aes(x = favorite, fill = age)) +
-  geom_bar() +
+# removes NAs from variables age and favorite
+cleaned_coffee_survey <- coffee_survey %>%
+  filter(!is.na(age) & !is.na(favorite))
+
+# creates a new data frame with age and favorite, counts the occurences of each favorite per age group
+data_summary <- cleaned_coffee_survey %>%
+  group_by(age, favorite) %>%
+  summarize(count = n(), .groups = 'drop')
+
+# creates proportion, which is the percentage of favorite in age 
+coffee_survey3 <- data_summary %>%
+  group_by(age)  %>%
+  mutate(proportion = count / sum(count, na.rm = TRUE))
+
+# makes graph
+ggplot(coffee_survey3, 
+       aes(x = favorite, y = proportion, fill = favorite)) +
+  geom_bar(stat = "identity") + 
+  facet_wrap(~ age) +
+    
+  scale_y_continuous(
+    labels = scales::percent) +
   labs(
-    x = "Population density",
-    y = "Count",
-    title = "Population density of midwesten counties",
-    subtitle = "Binwidth = 100"
+    x = "Favorite Way to Drink Coffee",
+    y = "Percentage",
+    title = "Favorite Ways to Drink Coffee Across Different Age Groups",
+  )+
+  theme(
+    axis.text.x = element_blank(),
   )
 ```
