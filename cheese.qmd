@@ -1,0 +1,31 @@
+---
+title: "Cheese"
+description: |
+  Analysis of Cheese data from TidyTuesday
+author: Felicia Akinde
+date: September 18, 2024
+format: html
+---
+
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(dplyr)
+
+tuesdata <- tidytuesdayR::tt_load(2024, week = 23)
+
+cheeses <- tuesdata$cheeses
+
+cleaned_cheeses <- cheeses %>%
+  filter(!is.na(milk) & !is.na(color) & !is.na(count))
+
+ggplot(cleaned_cheeses, aes(x = milk, y = color)) +
+  geom_tile() +
+  scale_fill_gradient(low = "pink", high = "lightgreen") +  # Customize colors
+  labs(
+    x = "Population density",
+    y = "Count",
+    title = "Population density of midwesten counties",
+    subtitle = "Binwidth = 100"
+  )
+```

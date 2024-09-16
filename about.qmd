@@ -1,9 +1,12 @@
 ---
 title: "About"
+2toc: false
+about:
+  template: trestles
+  links:
+    - text: TidyTuesday Repo
+      href: https://github.com/rfordatascience/tidytuesday/tree/master
 ---
+This website was created as a project for the course "DS 002R: Foundations of Data Science, R" at Pomona College.
 
-About this site
-
-```{r}
-1 + 1
-```
+In the Tab "Data Visualization", there are two visualizations created using R, with data sourced from the TidyTuesday data repository. The TidyTuesday Project is a collection of data frames, released every week from 2018 to present day. The data collected in these frames are endless, with data quantifying Olympic Medals to data describing Himalayan Climbers. The project is open to anyone and everyone, and it aims to provide opportunities for individuals to learn how to work with real-world data sets through data science.

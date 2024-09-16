@@ -1,0 +1,26 @@
+---
+title: "Coffee Survey"
+description: |
+  Analysis of Coffee Survey data from TidyTuesday
+author: Felicia Akinde
+date: September 18, 2024
+format: html
+---
+
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+
+tuesdata <- tidytuesdayR::tt_load(2024, week = 20)
+
+coffee_survey <- tuesdata$coffee_survey
+
+ggplot(coffee_survey, aes(x = favorite, fill = age)) +
+  geom_bar() +
+  labs(
+    x = "Population density",
+    y = "Count",
+    title = "Population density of midwesten counties",
+    subtitle = "Binwidth = 100"
+  )
+```

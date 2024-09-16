@@ -1,1 +1,9 @@
 /* css styles */
+
+.navbar {
+    background-color: #D4ADC9; /* Blush Pink */
+}
+
+.navbar a {
+    color: #52404D; /* Dark Pink Text */
+}
