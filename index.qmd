@@ -9,8 +9,8 @@ about:
   links:
     - text: LinkedIn
       href: https://www.linkedin.com/in/feliciaakinde120/
-    - text: GitHub
-      href: https://github.com/feliciakinde
+    - text: GitHub Project Repo
+      href: https://github.com/feliciaakinde/ds-002r-project-1/tree/main
     - text: Email
       href: mailto:ffav2023@mymail.pomona.edu
 ---
