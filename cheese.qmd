@@ -12,7 +12,7 @@ about:
       href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-06-04
 ---
 Data Source: 
-```{r, message=FALSE, warning=FALSE, echo = FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(tidytuesdayR)
 library(tidyverse)
 library(dplyr)
@@ -30,12 +30,12 @@ cheeses$calcium_content <- str_sub(cheeses$calcium_content, end = -8)
 cheeses$calcium_content <- as.numeric(cheeses$calcium_content)
 
 # creates a new data point if there is more than one animal in milk
-cheeses_separated <- cheeses %>%
+cheeses_separated <- cheeses |>
   separate_rows(milk, sep = ", ") 
 
 # takes NAs out of milk and calcium content
-cleaned_cheeses <- cheeses_separated %>%
-  filter(!is.na(milk) & !is.na(calcium_content)) %>%
+cleaned_cheeses <- cheeses_separated |>
+  filter(!is.na(milk) & !is.na(calcium_content)) |>
   # creates ranges for calcium_content & assigns them appropriate labels
   mutate(calcium_range = cut(calcium_content,
                          breaks = c(0, 50, 100, 200, 500, 1000, 5000),

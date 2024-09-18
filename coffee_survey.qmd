@@ -11,7 +11,7 @@ about:
     - text: Coffee Data Source
       href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-05-14
 ---
-```{r message=FALSE, warning=FALSE, echo = FALSE, fig.align="center", fig.width = 12}
+```{r message=FALSE, warning=FALSE, fig.align="center", fig.width = 12}
 library(tidytuesdayR)
 library(tidyverse)
 
@@ -22,17 +22,17 @@ tuesdata <- tidytuesdayR::tt_load(2024, week = 20)
 coffee_survey <- tuesdata$coffee_survey
 
 # removes NAs from variables age and favorite
-cleaned_coffee_survey <- coffee_survey %>%
+cleaned_coffee_survey <- coffee_survey |>
   filter(!is.na(age) & !is.na(favorite))
 
 # creates a new data frame with age and favorite, counts the occurences of each favorite per age group
-data_summary <- cleaned_coffee_survey %>%
-  group_by(age, favorite) %>%
+data_summary <- cleaned_coffee_survey |>
+  group_by(age, favorite) |>
   summarize(count = n(), .groups = 'drop')
 
 # creates proportion, which is the percentage of favorite in age 
-coffee_survey3 <- data_summary %>%
-  group_by(age)  %>%
+coffee_survey3 <- data_summary |>
+  group_by(age)  |>
   mutate(proportion = count / sum(count, na.rm = TRUE))
 
 # makes graph
