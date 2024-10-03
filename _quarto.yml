@@ -16,6 +16,8 @@ website:
             href: coffee_survey.html
           - text: "Cheese"
             href: cheese.html
+          - text: "Mini Project 2"
+            href: project2.html
 format:
   html:
     theme: minty

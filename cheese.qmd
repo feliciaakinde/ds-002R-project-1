@@ -6,7 +6,7 @@ author: Felicia Akinde
 date: September 18, 2024
 format: html
 about:
-  template: jolla
+  template: trestles
   links:
     - text: Cheese Data Source
       href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-06-04
