@@ -11,6 +11,7 @@ about:
     - text: Coffee Data Source
       href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-05-14
 ---
+
 ```{r message=FALSE, warning=FALSE, fig.align="center", fig.width = 12}
 library(tidytuesdayR)
 library(tidyverse)

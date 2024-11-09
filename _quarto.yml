@@ -18,6 +18,8 @@ website:
             href: cheese.html
           - text: "Mini Project 2"
             href: project2.html
+          - text: "Mini Project 3"
+            href: deck_of_cards.html
 format:
   html:
     theme: minty

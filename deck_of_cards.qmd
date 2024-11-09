@@ -1,0 +1,100 @@
+---
+title: "Deck of Cards"
+description: |
+  Add later
+author: Felicia Akinde
+date: November 7, 2024
+format: html
+about:
+  template: trestles
+---
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+
+With this analysis, I set out to calculate the probability of getting exactly one pair in a hand of
+cards of varying sizes (2-6). I planned to create a generalizable function that could work with any of these amounts. Finally, I planned to visualize these probabilities using a line graph.
+
+```{r}
+
+# assigns every literal number of card to a rank in order to be able to pull cards out of the "deck"
+
+Ace <- c(1, 14, 27, 40)
+two <- c(2, 15, 28, 41)
+three <- c(3, 16, 29, 42)
+four <- c(4, 17, 30, 43)
+five <- c(5, 18, 31, 44)
+six <- c(6, 19, 32, 45)
+seven <- c(7, 20, 33, 46)
+eight <- c(8, 21, 34, 47)
+nine <- c(9, 22, 35, 48)
+ten <-c(10, 23, 36, 49)
+jacks <- c(11, 24, 37, 50)
+queens <- c(12, 25, 38, 51)
+kings <- c(13, 26, 39, 52)
+
+
+
+deck_of_cards <- data.frame(Ace = Ace, Two = two, Three = three, 
+                            Four = four, Five = five, Six = six, Seven = seven, 
+                            Eight = eight, Nine = nine, Ten = ten, Jack = jacks, 
+                            Queen = queens, King = kings
+                            )
+
+# Diamonds: 1 = Diamond Ace, 2-10 Diamond, 11 = Diamond Jack, 12 = Diamond Queen, 13 = Diamond King
+# Hearts: 14 = Heart Ace, 15-23(2-10 Heart), 24 = Heart Jack, 25 = Heart Queen, 26 = Heart King
+# Spades: 27 = Spade Ace, 28-36(2-10 Spade), 37 = Spade Jack, 38 = Spade Queen, 39 = Spade King
+# Clubs: 40 = Club Ace, 41-49(2-10 Club), 50 = Club Jack, 51 = Club Queen, 52 = Club King
+
+
+  
+hand_generator <- function(num_of_cards) {
+   
+  num_cards_left <- num_of_cards - 2
+  
+  simplified_deck <- unlist(deck_of_cards)
+  hand <- sample(simplified_deck, num_of_cards, replace = FALSE)
+  
+  # total number of possibilities of hands with the amount of cards specified
+  possible_hands <- factorial(52)/(factorial(num_of_cards) * factorial(52-num_of_cards))
+  
+  # 13(ranks), times choosing 2 ranks out of four suits (our pair), times the 
+  # number of possible cards you could choose from the remaining ranks and the 
+  # amount of cards left, times the number of suits that could be pulled for the remaining cards
+  one_pair_ways <- 13 * (factorial(4)/(factorial(2)*factorial(4-2))) * 
+    (factorial(12)/(factorial(num_cards_left)*factorial(12 - num_cards_left))) * 
+    (4 ^ num_cards_left)
+  
+  probability_of_pair <- one_pair_ways/possible_hands * 100
+  
+  # when number of cards is over 5, the probability of getting only one pair 
+  # becomes zero because there are only four possible suits
+  if (num_of_cards > 5) {
+    print(hand)
+    return(0)
+  }
+  print(hand)
+  return(probability_of_pair)
+}
+
+prob_hands<- data.frame(
+   hand_size = c(2, 3, 4, 5, 6),
+  probability = map_dbl(2:6, hand_generator)
+)
+
+ggplot(prob_hands, aes(x = hand_size, y = probability)) +
+  geom_line() +
+  labs(title = "Probability of Exactly One Pair in a Hand",
+       x = "Hand Size",
+       y = "Probability (%)") +
+  theme_minimal()   
+
+```
+Figure 1. Line graph of the probability of exactly one pair in a hand. The greatest probability is seen at 5 cards in a hand, and progressively decreases as hand size decreases. 
+
+This plot can be useful when playing card games that depend on probability. A notable example is in the card game poker, where players each have 5-card hands, and place different kinds of bets. Typically they are based on what cards they think their opponents are holding, the likelihood of certain hands being dealt, and the probabilities of drawing favorable cards to improve their own hand. A one-pair hand is seen as low value, and looking at this graph, relatively common.
+
+
+To conquer this problem, I used an abundance of math, mostly using the factorial() function. With this, I was able to successfully calibrate the probabilities of picking up exactly one pair in hands of varying sizes. Lastly, a representation of the data was graphed using ggplot to visually represent the probabilities.
