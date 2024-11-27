@@ -266,16 +266,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  <span class="at">probability =</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>, hand_generator)</span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Three3 Seven1 
-    29      7 
- Five3  Five2 Seven2 
-    31     18     20 
-Seven1   Ten3  King2  Five1 
-     7     36     26      5 
-  Ten4 Seven1  Five4  King2 Queen2 
-    49      7     44     26     25 
-  Ace1   Ten3 Queen2  King3  King4   Six3 
-     1     36     25     39     52     32 </code></pre>
+<pre><code>Jack4  Ten3 
+   50    36 
+ Two2  Six1 Nine4 
+   15     6    48 
+Three3  Five2   Two4  Nine4 
+    29     18     41     48 
+Five2  Ace1 Nine3 King1  Ten2 
+   18     1    35    13    23 
+ Nine4 Three4  Four3   Six4 Three3  Jack4 
+    48     42     30     45     29     50 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prob_hands, <span class="fu">aes</span>(<span class="at">x =</span> hand_size, <span class="at">y =</span> probability)) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>

@@ -13,9 +13,7 @@ about:
 library(tidyverse)
 ```
 
-
-With this analysis, I set out to calculate the probability of getting exactly one pair in a hand of
-cards of varying sizes (2-6). I planned to create a generalizable function that could work with any of these amounts. Finally, I planned to visualize these probabilities using a line graph.
+With this analysis, I set out to calculate the probability of getting exactly one pair in a hand of cards of varying sizes (2-6). I planned to create a generalizable function that could work with any of these amounts. Finally, I planned to visualize these probabilities using a line graph.
 
 ```{r}
 
@@ -92,9 +90,9 @@ ggplot(prob_hands, aes(x = hand_size, y = probability)) +
   theme_minimal()   
 
 ```
-Figure 1. Line graph of the probability of exactly one pair in a hand. The greatest probability is seen at 5 cards in a hand, and progressively decreases as hand size decreases. 
+
+Figure 1. Line graph of the probability of exactly one pair in a hand. The greatest probability is seen at 5 cards in a hand, and progressively decreases as hand size decreases.
 
 This plot can be useful when playing card games that depend on probability. A notable example is in the card game poker, where players each have 5-card hands, and place different kinds of bets. Typically they are based on what cards they think their opponents are holding, the likelihood of certain hands being dealt, and the probabilities of drawing favorable cards to improve their own hand. A one-pair hand is seen as low value, and looking at this graph, relatively common.
-
 
 To conquer this problem, I used an abundance of math, mostly using the factorial() function. With this, I was able to successfully calibrate the probabilities of picking up exactly one pair in hands of varying sizes. Lastly, a representation of the data was graphed using ggplot to visually represent the probabilities.

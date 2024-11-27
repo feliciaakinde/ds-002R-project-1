@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Felicia Akinde">
+<meta name="dcterms.date" content="2024-11-26">
+<meta name="description" content="Add later">
 
-<title>Felicia Akinde</title>
+<title>Felicia Akinde - WAI Database</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -88,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -116,10 +153,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./deck_of_cards.html">
  <span class="dropdown-text">Mini Project 3</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./WAI_database.html">
- <span class="dropdown-text">WAI database Project</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -137,29 +170,125 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <div class="quarto-about-trestles content">
   <div class="about-entity">
-    <img src="media/IMG_4220.jpeg" class="about-image
-  rounded " style="width: 17em;">
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Felicia Akinde</h1>
+<h1 class="title">WAI Database</h1>
+</div>
+<div>
+  <div class="description">
+    <p>Add later</p>
+  </div>
 </div>
 <div class="quarto-title-meta">
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Felicia Akinde </p>
+          </div>
+  </div>
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 26, 2024</p>
+    </div>
+  </div>
   </div>
 </header>
-    <div class="about-links">
-  <a href="https://www.linkedin.com/in/feliciaakinde120/" class="about-link" rel="" target="">
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/feliciaakinde/ds-002r-project-1/tree/main" class="about-link" rel="" target="">
-     <span class="about-link-text">GitHub Project Repo</span>
-  </a>
-  <a href="mailto:ffav2023@mymail.pomona.edu" class="about-link" rel="" target="">
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
   </div>
   <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>Felicia Akinde is a student (CO ’27) at Pomona College in Claremont, California. She is majoring in neuroscience, with a minor in data science. Originally from Chicago, Illinois, she enjoys playing her guitar, drawing, and hanging out with friends when she isn’t soaking up the sunny California rays. One of her favorite food combinations is coffee and cheese, which inspired the data used on this website. Click on “About” to learn more!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RMariaDB)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In this analysis, I plan to create visualizations of mean absorbance by frequency in Hz of studies found in the Wideband Acoustic Intermittance (WAI) database. I based this visualization off of one created by Voss, 2019. I also plan on creating my own visualization of average absorbance by frequency by race based off of a study by Shahnaz and Bork, 2009. I plan to create a subset of the data from this source using the language SQL, and by graphing the data using ggplot in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>con_wai <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">MariaDB</span>(), <span class="at">host =</span> <span class="st">"scidb.smith.edu"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">user =</span> <span class="st">"waiuser"</span>, <span class="at">password =</span> <span class="st">"smith_waiDB"</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">dbname =</span> <span class="st">"wai"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Measurements <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con_wai, <span class="st">"Measurements"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>PI_Info <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con_wai, <span class="st">"PI_Info"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>Subjects <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con_wai, <span class="st">"Subjects"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-output.var="new.table">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>M.<span class="kw">Identifier</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>M.Frequency,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> M.SubjectNumber, M.Ear) <span class="kw">AS</span> Unique_Ears,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">AVG</span>(M.Absorbance) <span class="kw">AS</span> avg_abs,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>M.Instrument, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>P.AuthorsShortList,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>P.<span class="dt">Year</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">CONCAT</span>(P.AuthorsShortList, <span class="ot">"("</span>, P.<span class="dt">Year</span>, <span class="ot">")"</span>, <span class="ot">"N="</span>,<span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> M.SubjectNumber, M.Ear), <span class="ot">";"</span>, M.Instrument) <span class="kw">AS</span> <span class="kw">label</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Measurements <span class="kw">AS</span> M</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> PI_Info <span class="kw">AS</span> P</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> M.<span class="kw">Identifier</span> <span class="op">=</span> P.<span class="kw">Identifier</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> (M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Abur_2014'</span> <span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Feeney_2017'</span> <span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Groon_2015'</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Lewis_2015'</span> <span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Liu_2008'</span> <span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Rosowski_2012'</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Shahnaz_2006'</span> <span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Shaver_2013'</span> <span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Sun_2016'</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Voss_1994'</span> <span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Voss_2010'</span> <span class="kw">OR</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Werner_2010'</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> M.Frequency <span class="op">&gt;=</span> <span class="dv">200</span> <span class="kw">AND</span> M.Frequency <span class="op">&lt;=</span> <span class="dv">8000</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> M.<span class="kw">Identifier</span>, M.Frequency, M.Instrument, P.AuthorsShortList, P.<span class="dt">Year</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>new.table <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> avg_abs, <span class="at">color =</span> label)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Frequency (Hz)"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Absorbance"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Average Absorbance of Frequency by Study"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="WAI_database_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-output.var="race.table">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>M.<span class="kw">Identifier</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>M.Frequency,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">AVG</span>(M.Absorbance) <span class="kw">AS</span> avg_abs,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>S.Race</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Measurements <span class="kw">AS</span> M</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Subjects <span class="kw">AS</span> S</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> M.<span class="kw">Identifier</span> <span class="op">=</span> S.<span class="kw">Identifier</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> M.<span class="kw">Identifier</span> <span class="op">=</span> <span class="st">'Shahnaz_2006'</span> </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> M.Frequency <span class="op">&gt;=</span> <span class="dv">200</span> <span class="kw">AND</span> M.Frequency <span class="op">&lt;=</span> <span class="dv">8000</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> M.Frequency, S.Race;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>race.table <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> avg_abs, <span class="at">color =</span> Race)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span> Race) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Frequency (Hz)"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Absorbance"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Average Absorbance of Frequency by Race"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="WAI_database_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con_wai)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In this analysis, I successfully re-created the visualization made by Voss, 2019. I used a conbination of SQL and R in order to create a new dataset to work with, then plotted the values in that table. Then, I made my own vizualization of absorbance vs frequency based on Race from data collected by Shahnaz and Bork, 2009.</p>
+<p>Works Cited</p>
+<p>Voss SE. Resource Review. Ear Hear. 2019 Nov/Dec;40(6):1481. doi: 10.1097/AUD.0000000000000790. PMID: 31651606; PMCID: PMC7093226.</p>
+<p>Shahnaz, Navid1; Bork, Karin2; Polka, Linda3; Longridge, Neil4; Bell, Desmond5; Westerberg, Brian D.6. Energy Reflectance and Tympanometry in Normal and Otosclerotic Ears. Ear and Hearing 30(2):p 219-233, April 2009. | DOI: 10.1097/AUD.0b013e3181976a14</p>
 
 
 </main></div>

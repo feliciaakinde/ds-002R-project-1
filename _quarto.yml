@@ -20,6 +20,8 @@ website:
             href: project2.html
           - text: "Mini Project 3"
             href: deck_of_cards.html
+          - text: "WAI database Project"
+            href: WAI_database.html
 format:
   html:
     theme: minty
