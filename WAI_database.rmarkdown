@@ -18,7 +18,9 @@ library(tidyverse)
 library(RMariaDB)
 ```
 
+
 In this analysis, I plan to create visualizations of mean absorbance by frequency in Hz of studies found in the Wideband Acoustic Intermittance (WAI) database. I based this visualization off of one created by Voss, 2019. I also plan on creating my own visualization of average absorbance by frequency by race based off of a study by Shahnaz and Bork, 2009. I plan to create a subset of the data from this source using the language SQL, and by graphing the data using ggplot in R.
+
 
 ```{r}
 
@@ -68,7 +70,9 @@ new.table |>
     title = "Average Absorbance of Frequency by Study"
   )
 ```
+
 Figure 1. Mean absorbances by frequency for 12 studies found in the WAI database. Labels include study authors, year, number of unique ears measured, and instrument of measurement. 
+
 ```{sql}
 #| connection: con_wai
 #| output.var: "race.table"
@@ -98,11 +102,14 @@ race.table |>
     title = "Average Absorbance of Frequency by Race"
   )
 ```
+
 Figure 2. Graphs by race of mean absorbance by frequency as according to Shahnaz and Bork, 2009.
+
 
 ```{r}
 dbDisconnect(con_wai)
 ```
+
 
 
 In this analysis, I successfully re-created the visualization made by Voss, 2019. I used a conbination of SQL and R in order to create a new dataset to work with, then plotted the values in that table. Then, I made my own vizualization of absorbance vs frequency based on Race from data collected by Shahnaz and Bork, 2009.
@@ -112,3 +119,4 @@ Works Cited
 Voss SE. Resource Review. Ear Hear. 2019 Nov/Dec;40(6):1481. doi: 10.1097/AUD.0000000000000790. PMID: 31651606; PMCID: PMC7093226.
 
 Shahnaz, Navid1; Bork, Karin2; Polka, Linda3; Longridge, Neil4; Bell, Desmond5; Westerberg, Brian D.6. Energy Reflectance and Tympanometry in Normal and Otosclerotic Ears. Ear and Hearing 30(2):p 219-233, April 2009. \| DOI: 10.1097/AUD.0b013e3181976a14
+
