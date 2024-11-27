@@ -153,6 +153,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./deck_of_cards.html">
  <span class="dropdown-text">Mini Project 3</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./WAI_database.html">
+ <span class="dropdown-text">WAI database Project</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -194,6 +198,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   </div>
 </header>
+    <div class="about-links">
+  <a href="https://www.science.smith.edu/wai-database/home/download-data/" class="about-link" rel="" target="">
+     <span class="about-link-text">WAI Data Source</span>
+  </a>
+</div>
   </div>
   <div class="about-contents"><main class="content" id="quarto-document-content">
 <div class="cell">
@@ -250,6 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>Figure 1. Mean absorbances by frequency for 12 studies found in the WAI database. Labels include study authors, year, number of unique ears measured, and instrument of measurement.</p>
 <div class="cell" data-output.var="race.table">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>M.<span class="kw">Identifier</span>, </span>
@@ -282,11 +292,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>Figure 2. Graphs by race of mean absorbance by frequency as according to Shahnaz and Bork, 2009.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con_wai)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this analysis, I successfully re-created the visualization made by Voss, 2019. I used a conbination of SQL and R in order to create a new dataset to work with, then plotted the values in that table. Then, I made my own vizualization of absorbance vs frequency based on Race from data collected by Shahnaz and Bork, 2009.</p>
 <p>Works Cited</p>
+<p>WAI database: doi.org/10.35482/egr.001.2022</p>
 <p>Voss SE. Resource Review. Ear Hear. 2019 Nov/Dec;40(6):1481. doi: 10.1097/AUD.0000000000000790. PMID: 31651606; PMCID: PMC7093226.</p>
 <p>Shahnaz, Navid1; Bork, Karin2; Polka, Linda3; Longridge, Neil4; Bell, Desmond5; Westerberg, Brian D.6. Energy Reflectance and Tympanometry in Normal and Otosclerotic Ears. Ear and Hearing 30(2):p 219-233, April 2009. | DOI: 10.1097/AUD.0b013e3181976a14</p>
 

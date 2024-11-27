@@ -109,6 +109,8 @@ In this analysis, I successfully re-created the visualization made by Voss, 2019
 
 Works Cited
 
+WAI database: doi.org/10.35482/egr.001.2022
+
 Voss SE. Resource Review. Ear Hear. 2019 Nov/Dec;40(6):1481. doi: 10.1097/AUD.0000000000000790. PMID: 31651606; PMCID: PMC7093226.
 
 Shahnaz, Navid1; Bork, Karin2; Polka, Linda3; Longridge, Neil4; Bell, Desmond5; Westerberg, Brian D.6. Energy Reflectance and Tympanometry in Normal and Otosclerotic Ears. Ear and Hearing 30(2):p 219-233, April 2009. \| DOI: 10.1097/AUD.0b013e3181976a14
