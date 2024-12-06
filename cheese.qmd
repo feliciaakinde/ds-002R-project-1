@@ -1,17 +1,20 @@
 ---
-title: "Cheese"
+title: "Project 1: Cheese Color by Animal"
 description: |
   Analysis of Cheese data from TidyTuesday
 author: Felicia Akinde
 date: September 18, 2024
 format: html
+css: alignment.css
 about:
-  template: trestles
+  template: solana
   links:
     - text: Cheese Data Source
       href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-06-04
 ---
-Data Source: 
+
+Data Source:
+
 ```{r, message=FALSE, warning=FALSE}
 library(tidytuesdayR)
 library(tidyverse)

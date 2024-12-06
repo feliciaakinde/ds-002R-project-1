@@ -1,12 +1,13 @@
 ---
-title: "Mini-Project 2"
+title: "Project 2: Summer Movie Ratings"
 description: |
   Tbd
 author: Felicia Akinde
 date: September 27, 2024
 format: html
+css: alignment.css
 about:
-  template: trestles
+  template: solana
   links:
     - text: Summer Movies Data Source
       href: https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-07-30/readme.md
@@ -34,10 +35,8 @@ summer_movies_of_digi <- summer_movies_digi |>
 summer_movies_of_digi
 
 ```
+
 This is a table created from a data set that contains movies with the word "Summer" in them. This new table shows if they have the sequence "Summer" plus any two letters (most commonly of or in), plus a sequence of digits if those digits are more than double digits.
-
-
-
 
 ```{r}
 # genres and average rating (plot)
@@ -61,5 +60,9 @@ ggplot(movies_gen_rating,
     title = "Amount of over 5.0 Ratings per Summer Movie Genre",
   )
 ```
+
 This is a graph relating genres of movies with "Summer" in the title, and the amount of 5.0+ ratings movies with that genre received. This graph shows that Drama, Comedy, and Romance all got the most ratings over 5.0. Film-Noir, Reality-TV, Talk-Show, and Western got the least ratings over 5.0.
 
+Works Cited
+
+Data sourced from TidyTuesday (linked in button) and https://developer.imdb.com/non-commercial-datasets/

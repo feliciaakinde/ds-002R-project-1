@@ -12,15 +12,15 @@ website:
         text: About
       - text: Data Visualization
         menu:
-          - text: "Coffee Survey"
+          - text: "Project 1: Coffee Style by Age"
             href: coffee_survey.html
-          - text: "Cheese"
+          - text: "Project 1: Cheese Color by Animal"
             href: cheese.html
-          - text: "Mini Project 2"
+          - text: "Project 2: Summer Movie Ratings"
             href: project2.html
-          - text: "Mini Project 3"
+          - text: "Project 3: Deck of Cards Simulation"
             href: deck_of_cards.html
-          - text: "WAI database Project"
+          - text: "Project 4: WAI Database Analysis Using SQL"
             href: WAI_database.html
 format:
   html:

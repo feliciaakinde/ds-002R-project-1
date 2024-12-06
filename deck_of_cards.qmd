@@ -1,12 +1,13 @@
 ---
-title: "Deck of Cards"
+title: "Project 3: Deck of Cards Simulation"
 description: |
   Add later
 author: Felicia Akinde
 date: November 7, 2024
 format: html
+css: alignment.css
 about:
-  template: trestles
+  template: solana
 ---
 
 ```{r message=FALSE, warning=FALSE}

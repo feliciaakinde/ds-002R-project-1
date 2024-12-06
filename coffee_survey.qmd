@@ -1,12 +1,13 @@
 ---
-title: "Coffee Survey"
+title: "Project 1: Coffee Style by Age"
 description: |
   Analysis of Coffee Survey data from TidyTuesday
 author: Felicia Akinde
 date: September 18, 2024
 format: html
+css: alignment.css
 about:
-  template: trestles
+  template: solana
   links:
     - text: Coffee Data Source
       href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-05-14

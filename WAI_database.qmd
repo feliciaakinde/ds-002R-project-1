@@ -1,12 +1,13 @@
 ---
-title: "WAI Database"
+title: "Project 4: WAI Database Analysis Using SQL"
 description: |
   Add later
 author: Felicia Akinde
 date: November 26, 2024
 format: html
+css: alignment.css
 about:
-  template: trestles
+  template: solana
   links:
     - text: WAI Data Source
       href: https://www.science.smith.edu/wai-database/home/download-data/
