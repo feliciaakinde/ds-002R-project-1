@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2024-11-07">
 <meta name="description" content="Add later">
 
-<title>Felicia Akinde - Deck of Cards</title>
+<title>Felicia Akinde - Project 3: Deck of Cards Simulation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,6 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="alignment.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -139,19 +140,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-visualization">    
         <li>
     <a class="dropdown-item" href="./coffee_survey.html">
- <span class="dropdown-text">Coffee Survey</span></a>
+ <span class="dropdown-text">Project 1: Coffee Style by Age</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./cheese.html">
- <span class="dropdown-text">Cheese</span></a>
+ <span class="dropdown-text">Project 1: Cheese Color by Animal</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./project2.html">
- <span class="dropdown-text">Mini Project 2</span></a>
+ <span class="dropdown-text">Project 2: Summer Movie Ratings</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./deck_of_cards.html">
- <span class="dropdown-text">Mini Project 3</span></a>
+ <span class="dropdown-text">Project 3: Deck of Cards Simulation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./WAI_database.html">
+ <span class="dropdown-text">Project 4: WAI Database Analysis Using SQL</span></a>
   </li>  
     </ul>
   </li>
@@ -168,11 +173,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-trestles content">
+<div class="quarto-about-solana column-body content">
   <div class="about-entity">
-<header id="title-block-header" class="quarto-title-block default">
+    <div class="entity-contents">
+      <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Deck of Cards</h1>
+<h1 class="title">Project 3: Deck of Cards Simulation</h1>
 </div>
 <div>
   <div class="description">
@@ -193,9 +199,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
   </div>
-</header>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
+</header> 
+      <div class="about-contents"><main class="content" id="quarto-document-content">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -266,16 +271,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  <span class="at">probability =</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>, hand_generator)</span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Jack4  Ten3 
-   50    36 
- Two2  Six1 Nine4 
-   15     6    48 
-Three3  Five2   Two4  Nine4 
-    29     18     41     48 
-Five2  Ace1 Nine3 King1  Ten2 
-   18     1    35    13    23 
- Nine4 Three4  Four3   Six4 Three3  Jack4 
-    48     42     30     45     29     50 </code></pre>
+<pre><code>Nine3  Two2 
+   35    15 
+  Ace4  King3 Queen1 
+    40     39     12 
+Three3  Nine4 Queen3 Eight4 
+    29     48     38     47 
+Queen4  Five1  King2   Ten1  Jack2 
+    51      5     26     10     24 
+ Jack4  Nine1   Ace2  Jack2 Eight2   Ace3 
+    50      9     14     24     21     27 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prob_hands, <span class="fu">aes</span>(<span class="at">x =</span> hand_size, <span class="at">y =</span> probability)) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
@@ -297,6 +302,8 @@ Five2  Ace1 Nine3 King1  Ten2
 
 
 </main></div>
+    </div>
+  </div>
 </div>
  <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
