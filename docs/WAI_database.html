@@ -205,6 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </a>
 </div>
       <div class="about-contents"><main class="content" id="quarto-document-content">
+<p>Project 4 task: Use SQL queries to duplicate Figure 1 from Voss (2020), then find a study that included descriptions of an individuals sex, race, ethnicity, or age groups and plot frequency vs.&nbsp;mean absorption by a group of interest.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -259,6 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>alt txt: Line graph showing the average absorbance across different frequencies for multiple studies. The x-axis represents frequency in Hertz (Hz), and the y-axis represents the average absorbance. Each study is represented by a differently colored line.</p>
 <p>Figure 1. Mean absorbances by frequency for 12 studies found in the WAI database. Labels include study authors, year, number of unique ears measured, and instrument of measurement.</p>
 <div class="cell" data-output.var="race.table">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
@@ -292,6 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>alt txt: Scatter plot with connected lines showing the average absorbance across different frequencies for each race (Asian and Caucasian). The x-axis represents frequency in Hertz (Hz), and the y-axis represents the average absorbance. Each race is displayed in a separate panel, with points representing data points and lines connecting them for each race.</p>
 <p>Figure 2. Graphs by race of mean absorbance by frequency as according to Shahnaz and Bork, 2009.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con_wai)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

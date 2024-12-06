@@ -12,6 +12,7 @@ about:
     - text: Coffee Data Source
       href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-05-14
 ---
+Project 1 task: Create a quarto website with a home page, about page, and two data visualizations.
 
 ```{r message=FALSE, warning=FALSE, fig.align="center", fig.width = 12}
 library(tidytuesdayR)
@@ -27,7 +28,7 @@ coffee_survey <- tuesdata$coffee_survey
 cleaned_coffee_survey <- coffee_survey |>
   filter(!is.na(age) & !is.na(favorite))
 
-# creates a new data frame with age and favorite, counts the occurences of each favorite per age group
+# creates a new data frame with age and favorite, counts the occurrences of each favorite per age group
 data_summary <- cleaned_coffee_survey |>
   group_by(age, favorite) |>
   summarize(count = n(), .groups = 'drop')
@@ -54,3 +55,8 @@ ggplot(coffee_survey3,
     axis.text.x = element_blank(),
   )
 ```
+alt txt: Seven bar charts representing each age group showing their favorite ways to drink coffee. The colors of the bars represents the coffee preferences, and the y-axis shows the percentage of respondents, formatted as percentages. 
+
+Works Cited
+
+R for Data Science. (2024, May 14). TidyTuesday data: 2024-05-14. GitHub. Retrieved December 6, 2024, from https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-05-14

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Felicia Akinde">
 <meta name="dcterms.date" content="2024-11-07">
-<meta name="description" content="Add later">
+<meta name="description" content="Simulation of probability of getting a pair in a hand of cards">
 
 <title>Felicia Akinde - Project 3: Deck of Cards Simulation</title>
 <style>
@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div>
   <div class="description">
-    <p>Add later</p>
+    <p>Simulation of probability of getting a pair in a hand of cards</p>
   </div>
 </div>
 <div class="quarto-title-meta">
@@ -201,6 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </header> 
       <div class="about-contents"><main class="content" id="quarto-document-content">
+<p>Project 3 Task: Calculate a probability non-trivial to simulation that contains at least one original function, at least 1 map() variant, at least 1 illustrative, well-labeled plot, and a description of what insights can be gained from that plot.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -223,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>kings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">26</span>, <span class="dv">39</span>, <span class="dv">52</span>)</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># creates the deck of cards data frame</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>deck_of_cards <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Ace =</span> Ace, <span class="at">Two =</span> two, <span class="at">Three =</span> three, </span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                            <span class="at">Four =</span> four, <span class="at">Five =</span> five, <span class="at">Six =</span> six, <span class="at">Seven =</span> seven, </span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                            <span class="at">Eight =</span> eight, <span class="at">Nine =</span> nine, <span class="at">Ten =</span> ten, <span class="at">Jack =</span> jacks, </span>
@@ -271,23 +272,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  <span class="at">probability =</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>, hand_generator)</span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Nine3  Two2 
-   35    15 
-  Ace4  King3 Queen1 
-    40     39     12 
-Three3  Nine4 Queen3 Eight4 
-    29     48     38     47 
-Queen4  Five1  King2   Ten1  Jack2 
-    51      5     26     10     24 
- Jack4  Nine1   Ace2  Jack2 Eight2   Ace3 
-    50      9     14     24     21     27 </code></pre>
+<pre><code>King2 Jack1 
+   26    11 
+  Ace2 Seven4  Jack4 
+    14     46     50 
+ King3 Seven4 Queen4 Eight2 
+    39     46     51     21 
+  Ace4 Queen2  Four2 Three4 Eight4 
+    40     25     17     42     47 
+ Nine1 Eight3  King4  Four1  King3   Ace2 
+     9     34     52      4     39     14 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prob_hands, <span class="fu">aes</span>(<span class="at">x =</span> hand_size, <span class="at">y =</span> probability)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Probability of Exactly One Pair in a Hand"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Hand Size"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probability (%)"</span>) <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plots probability</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prob_hands, <span class="fu">aes</span>(<span class="at">x =</span> hand_size, <span class="at">y =</span> probability)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Probability of Exactly One Pair in a Hand"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Hand Size"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Probability (%)"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -296,6 +298,7 @@ Queen4  Five1  King2   Ten1  Jack2
 </div>
 </div>
 </div>
+<p>alt txt: Line graph showing the probability (as a percentage) of having exactly one pair in a hand (y-axis), plotted against hand size (x-axis).</p>
 <p>Figure 1. Line graph of the probability of exactly one pair in a hand. The greatest probability is seen at 5 cards in a hand, and progressively decreases as hand size decreases.</p>
 <p>This plot can be useful when playing card games that depend on probability. A notable example is in the card game poker, where players each have 5-card hands, and place different kinds of bets. Typically they are based on what cards they think their opponents are holding, the likelihood of certain hands being dealt, and the probabilities of drawing favorable cards to improve their own hand. A one-pair hand is seen as low value, and looking at this graph, relatively common.</p>
 <p>To conquer this problem, I used an abundance of math, mostly using the factorial() function. With this, I was able to successfully calibrate the probabilities of picking up exactly one pair in hands of varying sizes. Lastly, a representation of the data was graphed using ggplot to visually represent the probabilities.</p>

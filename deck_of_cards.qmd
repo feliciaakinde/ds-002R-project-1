@@ -1,7 +1,7 @@
 ---
 title: "Project 3: Deck of Cards Simulation"
 description: |
-  Add later
+  Simulation of probability of getting a pair in a hand of cards
 author: Felicia Akinde
 date: November 7, 2024
 format: html
@@ -9,6 +9,8 @@ css: alignment.css
 about:
   template: solana
 ---
+
+Project 3 Task: Calculate a probability non-trivial to simulation that contains at least one original function, at least 1 map() variant, at least 1 illustrative, well-labeled plot, and a description of what insights can be gained from that plot. 
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -35,7 +37,7 @@ queens <- c(12, 25, 38, 51)
 kings <- c(13, 26, 39, 52)
 
 
-
+# creates the deck of cards data frame
 deck_of_cards <- data.frame(Ace = Ace, Two = two, Three = three, 
                             Four = four, Five = five, Six = six, Seven = seven, 
                             Eight = eight, Nine = nine, Ten = ten, Jack = jacks, 
@@ -83,6 +85,7 @@ prob_hands<- data.frame(
   probability = map_dbl(2:6, hand_generator)
 )
 
+# plots probability
 ggplot(prob_hands, aes(x = hand_size, y = probability)) +
   geom_line() +
   labs(title = "Probability of Exactly One Pair in a Hand",
@@ -91,8 +94,10 @@ ggplot(prob_hands, aes(x = hand_size, y = probability)) +
   theme_minimal()   
 
 ```
+alt txt: Line graph showing the probability (as a percentage) of having exactly one pair in a hand (y-axis), plotted against hand size (x-axis). 
 
 Figure 1. Line graph of the probability of exactly one pair in a hand. The greatest probability is seen at 5 cards in a hand, and progressively decreases as hand size decreases.
+
 
 This plot can be useful when playing card games that depend on probability. A notable example is in the card game poker, where players each have 5-card hands, and place different kinds of bets. Typically they are based on what cards they think their opponents are holding, the likelihood of certain hands being dealt, and the probabilities of drawing favorable cards to improve their own hand. A one-pair hand is seen as low value, and looking at this graph, relatively common.
 

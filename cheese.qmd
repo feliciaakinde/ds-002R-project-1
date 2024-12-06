@@ -13,7 +13,7 @@ about:
       href: https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-06-04
 ---
 
-Data Source:
+Project 1 task: Create a quarto website with a home page, about page, and two data visualizations.
 
 ```{r, message=FALSE, warning=FALSE}
 library(tidytuesdayR)
@@ -27,10 +27,12 @@ tuesdata <- tidytuesdayR::tt_load(2024, week = 23)
 cheeses <- tuesdata$cheeses
 
 # removes "mg/100g" from end of calcium_content
-cheeses$calcium_content <- str_sub(cheeses$calcium_content, end = -8)
+cheeses <- cheeses |>
+  mutate(calcium_content = str_sub(calcium_content, end = -8))
 
 # turns calcium_content from a string into a number
-cheeses$calcium_content <- as.numeric(cheeses$calcium_content)
+cheeses <- cheeses |>
+  mutate(calcium_content = as.numeric(calcium_content))
 
 # creates a new data point if there is more than one animal in milk
 cheeses_separated <- cheeses |>
@@ -64,3 +66,9 @@ ggplot(cleaned_cheeses, aes(x = milk, y = color, fill = calcium_range)) +
     fill = "Calcium Content (mg/100g)"
   ) 
 ```
+alt txt: Heat map showing calcium content by color (y-axis) and type of milk (x-axis). Each tile is color-coded based on calcium content: yellow for 0-50, light green for 50-100, green for 100-200, cyan for 200-500, blue for 500-1000, and dark blue for 1000-5000. 
+
+
+Works Cited
+
+R for Data Science. (2024, June 4). TidyTuesday data: 2024-06-04. GitHub. Retrieved December 6, 2024, from https://github.com/rfordatascience/tidytuesday/tree/master/data/2024/2024-06-04

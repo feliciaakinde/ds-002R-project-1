@@ -1,7 +1,7 @@
 ---
 title: "Project 2: Summer Movie Ratings"
 description: |
-  Tbd
+  Analysis of movies that contain the word summer in them
 author: Felicia Akinde
 date: September 27, 2024
 format: html
@@ -13,26 +13,31 @@ about:
       href: https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-07-30/readme.md
 ---
 
+Project 2 task: Analyze data using: at least 3 str_*() functions, at least 3 regular expressions, at least 2 illustrative, well-labeled plots or tables, a description of what insights can be gained from your plots and tables, and a reference / documentation of the data source.
+
+
 ```{r message=FALSE, warning=FALSE}
+
 library(tidyverse)
 
+# imports data from tidytuesday
 tuesdata <- tidytuesdayR::tt_load(2024, week = 31)
 
+# renames data
 summer_movie_genres <- tuesdata$summer_movie_genres
 summer_movies <- tuesdata$summer_movies
 
 ```
 
 ```{r}
-#
+# creates tibble of summer movies that contain at least one digit
 summer_movies_digi <- summer_movies |>
   filter(str_detect(simple_title, "\\d")) |>
   select(primary_title, year, genres, simple_title, average_rating)
 
+# creates tibble of summer movies that include the specified pattern
 summer_movies_of_digi <- summer_movies_digi |>
   filter(str_detect(simple_title, "summer (..) \\d{2,}"))
-
-summer_movies_of_digi
 
 ```
 
@@ -50,6 +55,7 @@ movies_gen_rating <- summer_movies |>
   summarize(perc_over_5 = sum(perc_over_5)) |>
   select(genres, perc_over_5)
 
+# plot
 ggplot(movies_gen_rating, 
        aes(x = genres, y = perc_over_5)) +
   geom_bar(stat = "identity") +
@@ -60,9 +66,15 @@ ggplot(movies_gen_rating,
     title = "Amount of over 5.0 Ratings per Summer Movie Genre",
   )
 ```
+alt txt: Bar chart showing the amount of ratings over 5.0 for different summer movie genres. The x-axis represents movie genres, and the y-axis shows the proportion or count of ratings exceeding 5.0.
+
 
 This is a graph relating genres of movies with "Summer" in the title, and the amount of 5.0+ ratings movies with that genre received. This graph shows that Drama, Comedy, and Romance all got the most ratings over 5.0. Film-Noir, Reality-TV, Talk-Show, and Western got the least ratings over 5.0.
 
 Works Cited
 
-Data sourced from TidyTuesday (linked in button) and https://developer.imdb.com/non-commercial-datasets/
+Data sourced from TidyTuesday (linked in button) 
+
+R for Data Science. (2024, July 30). TidyTuesday data: README file. GitHub. Retrieved December 6, 2024, from https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-07-30/readme.md
+
+IMDb. (n.d.). Non-commercial datasets. IMDb Developer. Retrieved December 6, 2024, from https://developer.imdb.com/non-commercial-datasets/
