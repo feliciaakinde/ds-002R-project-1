@@ -48,7 +48,7 @@ Cheese Color by Animal
 
 Summer Movie Ratings
 
-![](media/SummerMovieRatings.png){style="width: 100%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
+![](media/summermovies2.png){style="width: 100%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
 
 ## Project 3: Simulation using Map()
 

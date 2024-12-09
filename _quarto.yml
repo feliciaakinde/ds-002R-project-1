@@ -22,6 +22,8 @@ website:
             href: deck_of_cards.html
           - text: "Project 4: WAI Database Analysis Using SQL"
             href: WAI_database.html
+          - text: "Presentation"
+            href: finalpresentation.html
 format:
   html:
     theme: minty
