@@ -1,5 +1,5 @@
 ---
-title: "title of presentation"
+title: "My Github Website!"
 author: "Felicia Akinde"
 subtitle: "December 9, 2024"
 format:
@@ -14,5 +14,70 @@ execute:
   message: false
 ---
 
-## hi
-hi 
+## Project 1: Website and Two Visualizations
+
+Home Page
+
+![](media/homepage.png){style="width: 100%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
+
+## Project 1: Website and Two Visualizations
+
+About Page
+
+![](media/aboutpage.png){style="width: 100%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
+
+## Project 1: Website and Two Visualizations
+
+Data Visualization Navigation Bar
+
+![](media/navbar.png){style="width: 65%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
+
+## Project 1: Website and Two Visualizations
+
+Coffee Style by Age
+
+![](media/CoffeeStyle.png){style="width: 100%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
+
+## Project 1: Website and Two Visualizations
+
+Cheese Color by Animal
+
+![](media/CheeseColor.png){style="width: 100%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
+
+## Project 2: Analysis using RegEx and str\_\*() functions
+
+Summer Movie Ratings
+
+![](media/SummerMovieRatings.png){style="width: 100%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
+
+## Project 3: Simulation using Map()
+
+Deck of Cards Simulation
+
+![](media/DeckofCardsSimulation.png){style="width: 100%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
+
+## Project 4: Recreation of WAI Database Using SQL
+
+![](media/WAIDatabaseAnalysis.png){style="width: 100%;     height: auto; /* Adjust height proportionally */     display: block;     margin: auto; /* Center the image */" fig-align="center" width="562"}
+
+## Project 5: Website Cleanup
+
+Main changes:
+
+-   Updated About page
+
+    -   Changed description to be more general
+
+-   Changed names of projects to be more descriptive
+
+    -   For example: “Mini-Project 2” → “Project 2: Summer Movie Ratings”
+
+-   Changed CSS and template style
+
+    ![](media/cssexample.png){fig-align="left" width="352"}
+
+-   Increased code clarity, project alignment, and accessibility
+
+    -   Added comments, goals, descriptions and alt text
+
+## Thank you!

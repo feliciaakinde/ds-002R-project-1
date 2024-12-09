@@ -224,31 +224,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># creates tibble of summer movies that include the specified pattern</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>summer_movies_of_digi <span class="ot">&lt;-</span> summer_movies_digi <span class="sc">|&gt;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(simple_title, <span class="st">"summer (..) </span><span class="sc">\\</span><span class="st">d{2,}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(simple_title, <span class="st">"summer (..) </span><span class="sc">\\</span><span class="st">d{2,}"</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>summer_movies_of_digi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 5
+   primary_title                         year genres simple_title average_rating
+   &lt;chr&gt;                                &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;                 &lt;dbl&gt;
+ 1 Summer of '42                         1971 Drama… summer of 42            7.2
+ 2 The Elusive Summer of '68             1984 Comed… the elusive…            8.5
+ 3 The Cold Summer of 1953               1988 Actio… the cold su…            7.8
+ 4 Summer of '69                         1969 Roman… summer of 69            5.8
+ 5 Memories of the Olympic Summer of 1…  1954 Docum… memories of…            6  
+ 6 A Boy's Summer in 1945                2002 Drama… a boys summ…            7  
+ 7 Summer of 85                          2020 Drama… summer of 85            6.9
+ 8 Saint Laurent: Summer of '21          2020 Short  saint laure…            6.5
+ 9 The Summer of 69                      2009 Comedy the summer …            7.9
+10 Summer of 1941                        2022 Actio… summer of 1…            6  
+11 Elvis: Summer of '56                  2011 Docum… elvis summe…            6.4
+12 Summer of '92                         2015 Biogr… summer of 92            6.8
+13 Summer of 84                          2018 Horro… summer of 84            6.7
+14 Summer of '44                         2017 Drama… summer of 44            5.7
+15 Summer of '67                         2018 Drama… summer of 67            4.9
+16 Shashin Koshien Summer in 0.5 Secon…  2017 Drama  shashin kos…            7.5</code></pre>
+</div>
 </div>
 <p>This is a table created from a data set that contains movies with the word “Summer” in them. This new table shows if they have the sequence “Summer” plus any two letters (most commonly of or in), plus a sequence of digits if those digits are more than double digits.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># genres and average rating (plot)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>movies_gen_rating <span class="ot">&lt;-</span> summer_movies <span class="sc">|&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">genres =</span> <span class="fu">str_split</span>(genres, <span class="st">","</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc_over_5 =</span> <span class="fu">str_count</span>(average_rating, <span class="st">"[5-9]</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(genres) <span class="sc">|&gt;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(genres)) <span class="sc">|&gt;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(genres) <span class="sc">|&gt;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">perc_over_5 =</span> <span class="fu">sum</span>(perc_over_5)) <span class="sc">|&gt;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(genres, perc_over_5)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies_gen_rating, </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> genres, <span class="at">y =</span> perc_over_5)) <span class="sc">+</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Summer Movie Genre"</span>,</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Amount of Ratings over 5.0"</span>,</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Amount of over 5.0 Ratings per Summer Movie Genre"</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># genres and average rating (plot)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>movies_gen_rating <span class="ot">&lt;-</span> summer_movies <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">genres =</span> <span class="fu">str_split</span>(genres, <span class="st">","</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc_over_5 =</span> <span class="fu">str_count</span>(average_rating, <span class="st">"[5-9]</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(genres) <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(genres)) <span class="sc">|&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(genres) <span class="sc">|&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">perc_over_5 =</span> <span class="fu">sum</span>(perc_over_5)) <span class="sc">|&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(genres, perc_over_5)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies_gen_rating, </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> genres, <span class="at">y =</span> perc_over_5)) <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Summer Movie Genre"</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Amount of Ratings over 5.0"</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Amount of over 5.0 Ratings per Summer Movie Genre"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">

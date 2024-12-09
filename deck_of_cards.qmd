@@ -10,7 +10,7 @@ about:
   template: solana
 ---
 
-Project 3 Task: Calculate a probability non-trivial to simulation that contains at least one original function, at least 1 map() variant, at least 1 illustrative, well-labeled plot, and a description of what insights can be gained from that plot. 
+Project 3 Task: Calculate a non-trivial probability that can be simulated that contains at least one original function, at least 1 map() variant, at least 1 illustrative, well-labeled plot, and a description of what insights can be gained from that plot. 
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)

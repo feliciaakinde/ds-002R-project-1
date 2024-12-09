@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </header> 
       <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>Project 3 Task: Calculate a probability non-trivial to simulation that contains at least one original function, at least 1 map() variant, at least 1 illustrative, well-labeled plot, and a description of what insights can be gained from that plot.</p>
+<p>Project 3 Task: Calculate a non-trivial probability that can be simulated that contains at least one original function, at least 1 map() variant, at least 1 illustrative, well-labeled plot, and a description of what insights can be gained from that plot.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -272,16 +272,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  <span class="at">probability =</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>, hand_generator)</span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>King2 Jack1 
-   26    11 
-  Ace2 Seven4  Jack4 
-    14     46     50 
- King3 Seven4 Queen4 Eight2 
-    39     46     51     21 
-  Ace4 Queen2  Four2 Three4 Eight4 
-    40     25     17     42     47 
- Nine1 Eight3  King4  Four1  King3   Ace2 
-     9     34     52      4     39     14 </code></pre>
+<pre><code>Three4   Ten4 
+    42     49 
+  Six1  Nine4 Queen4 
+     6     48     51 
+King4 King1  Six2  Ten1 
+   52    13    19    10 
+Seven4 Three3   Ace1   Ace3  Five1 
+    46     29      1     27      5 
+  Two3  Jack3  Jack2  Nine4 Eight3  Five2 
+    28     37     24     48     34     18 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plots probability</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prob_hands, <span class="fu">aes</span>(<span class="at">x =</span> hand_size, <span class="at">y =</span> probability)) <span class="sc">+</span></span>

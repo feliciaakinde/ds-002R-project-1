@@ -39,6 +39,7 @@ summer_movies_digi <- summer_movies |>
 summer_movies_of_digi <- summer_movies_digi |>
   filter(str_detect(simple_title, "summer (..) \\d{2,}"))
 
+summer_movies_of_digi
 ```
 
 This is a table created from a data set that contains movies with the word "Summer" in them. This new table shows if they have the sequence "Summer" plus any two letters (most commonly of or in), plus a sequence of digits if those digits are more than double digits.
