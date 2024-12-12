@@ -158,6 +158,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./WAI_database.html">
  <span class="dropdown-text">Project 4: WAI Database Analysis Using SQL</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./finalpresentation.html">
+ <span class="dropdown-text">Presentation</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -232,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>M.Instrument, </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>P.AuthorsShortList,</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>P.<span class="dt">Year</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">CONCAT</span>(P.AuthorsShortList, <span class="ot">"("</span>, P.<span class="dt">Year</span>, <span class="ot">")"</span>, <span class="ot">"N="</span>,<span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> M.SubjectNumber, M.Ear), <span class="ot">";"</span>, M.Instrument) <span class="kw">AS</span> <span class="kw">label</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">CONCAT</span>(P.AuthorsShortList, <span class="ot">" ("</span>, P.<span class="dt">Year</span>, <span class="ot">") "</span>, <span class="ot">" N = "</span>,<span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> M.SubjectNumber, M.Ear), <span class="ot">"; "</span>, M.Instrument) <span class="kw">AS</span> <span class="kw">label</span> </span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Measurements <span class="kw">AS</span> M</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> PI_Info <span class="kw">AS</span> P</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> M.<span class="kw">Identifier</span> <span class="op">=</span> P.<span class="kw">Identifier</span></span>
